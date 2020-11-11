@@ -2,12 +2,21 @@
 # ESP32Servo360.h
 ## Version 0.1.0
 
-Control Parallax High Speed 360° servos with ESP32 boards.
+Control Parallax High Speed 360° servos with ESP32 boards. Works with interrupts and multitasking (FreeRTOS).
 About this motor:
 - [Infos](https://www.parallax.com/product/900-00360).
 - [Product Guide](https://www.parallax.com/sites/default/files/downloads/900-00360-Feedback-360-HS-Servo-v1.2.pdf) [PDF].
 
 ## How to
+
+#### Suggested equipment
+- 6V 2A power supply.
+- ESP32 Dev board.
+- Breadboard.
+- Jumper wires.
+- Parallax High Speed 360° servos
+- Micro USB to USB 2.0
+
 #### Installation for ESP32 boards
 1. Download this [repository](https://github.com/ecal-mid/ESP32Servo360) : _Code > Download ZIP_.
 2. Download the latest [Arduino IDE](https://www.arduino.cc/en/software) then open it. 
@@ -15,9 +24,9 @@ About this motor:
 4. In _Board > Boards Manager_, search and install the latest core _esp32_.
 
 #### Connecting the ESP32 to a Servo
-1. Wire like this image below.
+1. Wire like this image below. Make sure to connect the ESP32 GND pin to the ground of the 6V power supply.
 ![Wiring](https://raw.githubusercontent.com/ecal-mid/ESP32Servo360/main/docs/wiring.jpg)
-3. Connect your esp32 to your computer and the motor to your 6v power supply.
+3. Connect your esp32 to your computer and the motor to your 6V power supply.
 4. On Arduino IDE, find your board in _Tools > Port_. Mine, shows as _/dev/cu.SLAB_USBtoUART_.
 5. In _Board > Boards Manager > ESP32 Arduino_, select _"DOIT ESP32 DEVKIT V1"_.
 6. Run one of the examples (_File > Examples > ESP32Servo360_). Check if the pins matches the code `servo.attach(4, 16)`.
