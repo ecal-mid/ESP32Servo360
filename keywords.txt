@@ -1,0 +1,34 @@
+#######################################
+# Syntax Coloring Map ESP32Servo360
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ESP32Servo360	KEYWORD1	ESP32Servo360
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+attach	KEYWORD2
+detach	KEYWORD2
+wait	KEYWORD2
+stop	KEYWORD2
+hold	KEYWORD2
+clearTurns	KEYWORD2
+release	KEYWORD2
+busy	KEYWORD2
+attached	KEYWORD2
+adjustSignal	KEYWORD2
+calibrate	KEYWORD2
+setOffset	KEYWORD2
+setDeceleration	KEYWORD2
+rotate	KEYWORD2
+rotateTo	KEYWORD2
+setSpeed	KEYWORD2
+getAngle	KEYWORD2
+getTurns	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
