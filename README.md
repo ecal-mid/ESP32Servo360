@@ -1,4 +1,3 @@
-
 # ESP32Servo360.h
 ## Version 0.1.0
 
@@ -78,7 +77,7 @@ Releases the servo from its hold state.
 #### servo.rotate(```float angle```)
 Rotate from current position.
 #### servo.rotateTo(```float target```)
-Rotate from to a specific position.
+Rotate to a specific position.
 #### servo.spin(```[float rpm]```)
 Spin clockwise or anticlockwise at a the default RPM if the parameter unset.\
 Setting the parameter won't change the saved RPM of the servo. Instead use the method ```servo.setSpeed();``` .
