@@ -23,8 +23,9 @@ About this motor:
 6. Run one of the examples (_File > Examples > ESP32Servo360_). Check if the pins matches the code `servo.attach(4, 16)`.
 
 ## Instantiation
-#### ESP32Servo360 servo
-#### ESP32Servo360 servo(```[int  offsetAngle]```, ```[int rpm]```, ```[int deceleration]```, ```[int minPulseWidth]```, ```[int maxPulseWidth]```, ```[int channel]```)
+#### ESP32Servo360 servo;
+Or
+#### ESP32Servo360 servo(```[int  offsetAngle]```, ```[int rpm]```, ```[int deceleration]```, ```[int minPulseWidth]```, ```[int maxPulseWidth]```, ```[int channel]```);
 Set optionnal parameters directly at the creation of an instance.
 - ```offsetAngle``` Default is 0 degrees.
 - ```rpm``` Default speed of the servo (Turns  per  Minute). Maximum is 140.
@@ -45,12 +46,13 @@ Attach to the correct pins of your servo.
 - ```controlPin``` is the white cable.
 - ```feebackPin``` is the yellow cable.
 #### servo.calibrate()
-For better readable angle accuracy, automatically set the PWM signal of the internal Hall Effect Sensor.
+For better readable angle accuracy, automatically set the PWM signal of the internal Hall Effect Sensor.\
 The servo will turn and give you the result through `Serial`.
 #### servo.detach()
 Disconnect the servo from its pins.
 #### servo.setDeceleration(```int deceleration```)
-To prevent any bouncing, especially due to high RPM. You can start the deceleration to a higher angle from the target angle.
+To prevent any bouncing, especially due to high RPM.\
+You can start the deceleration to a higher angle from the target angle.\
 Default is set to _180_ degrees.
 #### servo.setOffset(```int offsetAngle```)
 If you decide to change the orientation of your motor, you can offset its zero position.
@@ -70,7 +72,7 @@ Rotate from current position.
 #### servo.rotateTo(```float target```)
 Rotate from to a specific position.
 #### servo.spin(```[float rpm]```)
-Spin clockwise or anticlockwise at a the default RPM if the parameter unset.
+Spin clockwise or anticlockwise at a the default RPM if the parameter unset.\
 Setting the parameter won't change the saved RPM of the servo. Instead use the method ```servo.setSpeed();``` .
 Value must be between -140 and 140.
 #### servo.stop()
@@ -82,15 +84,15 @@ Wait for the motor to finish its rotation. Will hold the execution of the main l
 ```true``` if servo is attached to pins.
 Returns bool.
 #### servo.busy()
-```true``` if servo is still executing a rotation or holding an angle.
+```true``` if servo is still executing a rotation or holding an angle.\
 Returns bool.
 ### Feedback
 #### servo.getAngle()
-Get the amount of rotation. Angle will go below 0 and above 360 degrees.
+Get the amount of rotation. Angle will go below 0 and above 360 degrees.\
 Returns a float.
 #### servo.getOrientation()
-Get the orientation between 0 to 360 degrees.
+Get the orientation between 0 to 360 degrees.\
 Returns a float.
 #### servo.getTurns()
-Get number of turns. This will be reset after a reboot of the board.
+Get number of turns. This will be reset after a reboot of the board.\
 Returns int.
