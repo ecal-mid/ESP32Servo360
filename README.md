@@ -109,4 +109,5 @@ Returns int.
 ----
 Author, maintainer: [Sébastien Matos](https://github.com/matoseb)\
 **ECAL 2020 Bachelor Media & Interaction design.**
+
 ![ECAL](https://www.ecal.ch/img/logo.png)
