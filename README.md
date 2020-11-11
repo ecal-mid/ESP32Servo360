@@ -15,7 +15,7 @@ About this motor:
 4. In _Board > Boards Manager_, search and install the latest core _esp32_.
 
 #### Connecting the ESP32 to a Servo
-1. Connect like this image.
+1. Wire like this image below.
 ![Wiring](https://raw.githubusercontent.com/ecal-mid/ESP32Servo360/main/docs/wiring.jpg)
 3. Connect your esp32 to your computer and the motor to your 6v power supply.
 4. On Arduino IDE, find your board in _Tools > Port_. Mine, shows as _/dev/cu.SLAB_USBtoUART_.
