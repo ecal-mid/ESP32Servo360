@@ -1,4 +1,4 @@
-// Connect up to theoretically 16 servos. (Max number off ledc Channels of the ESP32).
+// Connect up to theoretically 16 servos. (Max number off ledc Channels on the ESP32).
 
 #include <ESP32Servo360.h>
 
@@ -18,8 +18,8 @@ void loop() {
   servo1.wait();
   servo2.wait();
 
-  servo1.rotateTo(-275);
-  servo2.spin(75);
+  servo1.rotateTo(-675);
+  servo2.spin(50);
   servo1.wait();
   servo2.stop();
 

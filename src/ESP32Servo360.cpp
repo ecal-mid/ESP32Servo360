@@ -113,10 +113,9 @@ void ESP32Servo360::spin(void)
 
 void ESP32Servo360::wait()
 {
-    while (_updateHandle != NULL)
-    {
+    while (_updateHandle != NULL) {
         delay(1);
-    }
+    } 
 }
 
 bool ESP32Servo360::busy()
@@ -166,13 +165,13 @@ float ESP32Servo360::getAngle()
 int ESP32Servo360::getTurns()
 {
     float angle = getAngle();
-    return fmod(angle, 360);
+    return (angle - fmod(angle, 360)) / 360;
 }
 
 float ESP32Servo360::getOrientation()
 {
     float angle = getAngle();
-    return angle - fmod(angle, 360);
+    return fmod(angle, 360);
 }
 
 void ESP32Servo360::clearTurns()
@@ -204,7 +203,6 @@ bool ESP32Servo360::attached() const { return _ctrlPin != PIN_NOT_ATTACHED; }
 void ESP32Servo360::stop()
 {
     _disableRunningTask();
-    _setRPM(0);
 }
 
 void ESP32Servo360::_computeAngle()
@@ -239,6 +237,8 @@ inline void ESP32Servo360::_disableRunningTask()
         vTaskDelete(_updateHandle);
         _updateHandle = NULL;
     }
+
+    _setRPM(0);
 }
 
 void ESP32Servo360::_setRPM(float rpm)
