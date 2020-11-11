@@ -1,7 +1,7 @@
 # ESP32Servo360.h
 ## Version 0.1.0
 
-Control Parallax High Speed 360° servos with ESP32 boards. Works with interrupts and multitasking (FreeRTOS).
+Control Parallax High Speed 360° servos with ESP32 boards. Works with interrupts and multitasking (FreeRTOS).\
 About this motor:
 - [Infos](https://www.parallax.com/product/900-00360).
 - [Product Guide](https://www.parallax.com/sites/default/files/downloads/900-00360-Feedback-360-HS-Servo-v1.2.pdf) [PDF].
