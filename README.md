@@ -40,7 +40,7 @@ Set optionnal parameters directly at the creation of an instance.
 - ```deceleration``` Ease-out. By default, deceleration starts at 70 degrees from target angle.
 - ```minPulseWidth``` PWM signal of the Hall Sensor at 0 degrees. Default is 32.
 - ```maxPulseWidth``` PWM signal of the Hall Sensor at ~360 degrees. Default is 1067.
-- ```channel``` ESP32 LEDC channel used to send the PWM signal to the motor.
+- ```channel``` ESP32 LEDC channel used to send the PWM signal to the motor. Automatic by default.
 
 ## Methods
 ### Settings
