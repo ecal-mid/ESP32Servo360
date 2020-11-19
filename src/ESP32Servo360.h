@@ -185,6 +185,8 @@ private:
             vTaskDelay(1 / portTICK_PERIOD_MS);
         }
 
+        vTaskDelay(50 / portTICK_PERIOD_MS);
+
         s->_setRPM(0);
         s->_updateHandle = NULL;
         vTaskDelete(NULL);
