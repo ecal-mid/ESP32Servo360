@@ -66,6 +66,12 @@ If you decide to change the orientation of your motor, you can offset its zero p
 #### servo.setSpeed(```float rpm```)
 Change the maximum RPM (Rotation Per Minute) of your servo.
 Default is 70 RPM.
+#### servo.setAdditionalTorque(```float force```)
+**For easing rotations only**, add more force when speed is minimal (at start & end of movement).\
+Default is 5.
+#### servo.setMinimalForce(```float force```)
+Minimal force required for the servo to move. minimal force may barely move the servo, bigger force may do infinite bounces.\
+Default is 7.
 ### Actions
 #### servo.clearTurns()
 Reset the number of turns.
@@ -76,8 +82,12 @@ Disable this state by executing another rotation or calling ```servo.release();`
 Releases the servo from its hold state.
 #### servo.rotate(```float angle```)
 Rotate from current position.
+#### servo.easeRotate(```float angle```)
+Rotate by given angle with a ease-in-out-quad move.
 #### servo.rotateTo(```float target```)
 Rotate to a specific position.
+#### servo.easeRotateTo(```float angle```)
+Rotate to a given angle with a ease-in-out-quad move.
 #### servo.spin(```[float rpm]```)
 Spin clockwise or anticlockwise at a the default RPM if the parameter unset.\
 Setting the parameter won't change the saved RPM of the servo. Instead use the method ```servo.setSpeed();``` .
