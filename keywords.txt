@@ -24,9 +24,14 @@ adjustSignal	KEYWORD2
 calibrate	KEYWORD2
 setOffset	KEYWORD2
 setDeceleration	KEYWORD2
+spin	KEYWORD2
 rotate	KEYWORD2
+easeRotate	KEYWORD2
 rotateTo	KEYWORD2
+easeRotateTo	KEYWORD2
 setSpeed	KEYWORD2
+setAdditionalTorque KEYWORD2
+setMinimalForce KEYWORD2
 getAngle	KEYWORD2
 getTurns	KEYWORD2
 #######################################

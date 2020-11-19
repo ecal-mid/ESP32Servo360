@@ -8,10 +8,13 @@ ESP32Servo360::ESP32Servo360(int offsetAngle, int rpm, int deceleration, int min
     _offsetAngle = offsetAngle;
     _target = offsetAngle;
     _rpm = rpm;
+    _minTorque = MIN_TORQUE;
+    _minRpm = MIN_RPM;
     _minPulseWidth = minPulseWidth;
     _maxPulseWidth = maxPulseWidth;
     _updateHandle = NULL;
     _speed = 0;
+
     _hold = false;
     _pwmValue = -1; // unset
     _deceleration = deceleration;
@@ -48,6 +51,17 @@ bool ESP32Servo360::attach(int ctrlPin, int feedbackPin)
     attachInterruptArg(_feedbackPin, _isr, this, CHANGE);
 
     // _beginLoop();
+    delay(100); // wait for first angle calculation
+
+    _computeAngle();
+
+    if (_angle < 0)
+    {
+        _angle += 360;
+        _orientation = _angle;
+    }
+    Serial.println(_angle);
+
     return true;
 }
 
@@ -123,9 +137,19 @@ bool ESP32Servo360::busy()
     return _updateHandle = NULL;
 }
 
-void ESP32Servo360::setSpeed(float rpm)
+void ESP32Servo360::setSpeed(float maxRpm)
 {
-    _rpm = constrain(rpm, -MAX_RPM, MAX_RPM);
+    _rpm = constrain(maxRpm, -MAX_RPM, MAX_RPM);
+    _minRpm = constrain(_minRpm, 0, _rpm);
+}
+
+void ESP32Servo360::setAdditionalTorque(float minRpm) {
+    _minRpm = constrain(minRpm, 0, _rpm);
+}
+
+void ESP32Servo360::setMinimalForce(float minTorque)
+{
+    _minTorque = max(minTorque, (float)0);
 }
 
 void ESP32Servo360::rotate(float angle)
@@ -138,6 +162,17 @@ void ESP32Servo360::rotateTo(float target)
 {
     _target = target + _offsetAngle;
     _beginLoop();
+}
+void ESP32Servo360::easeRotateTo(float target)
+{
+    _target = target + _offsetAngle;
+    _beginEase();
+}
+
+void ESP32Servo360::easeRotate(float angle)
+{
+    _target += angle;
+    _beginEase();
 }
 
 bool ESP32Servo360::detach()
@@ -177,6 +212,11 @@ float ESP32Servo360::getOrientation()
 void ESP32Servo360::clearTurns()
 {
     _angle = _orientation;
+}
+
+int ESP32Servo360::getSpeed()
+{
+    return _rpm;
 }
 
 void ESP32Servo360::hold()
@@ -226,7 +266,7 @@ void ESP32Servo360::_computeAngle()
 void ESP32Servo360::_computeTarget()
 {
     float theta = _target - _angle;
-    _speed = constrain(_fmap(abs(theta), 0, _deceleration, 7, MAX_RPM), 0, _rpm) * _sgn(theta);
+    _speed = constrain(_fmap(abs(theta), 0, _deceleration, _minTorque, MAX_RPM), 0, _rpm) * _sgn(theta);
     _setRPM(_speed);
 }
 
@@ -280,6 +320,20 @@ void ESP32Servo360::_beginLoop()
     xTaskCreate(
         _updateLoop,
         "update",
+        1000,
+        this,
+        1,
+        &_updateHandle // Task handle
+    );
+}
+
+void ESP32Servo360::_beginEase()
+{
+    _disableRunningTask();
+    _hold = false;
+    xTaskCreate(
+        _updateEase,
+        "ease",
         1000,
         this,
         1,
