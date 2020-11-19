@@ -167,7 +167,7 @@ private:
         float currAngle = origAngle;
         float peak = 0.5;
         float t = 0;
-        float minForce = min(s->_minTorque + s->_minRpm, s->_rpm);
+        float minForce = min(s->_minTorque + s->_minRpm, (float)s->_rpm);
 
 
         int direction = _sgn(s->_target - origAngle);
@@ -182,7 +182,7 @@ private:
             float e = (easeInOutQuad(t) - peak);
             float speed = _fmap(abs(e), 0, peak, s->_rpm, minForce);
             s->_setRPM(speed * direction);
-            vTaskDelay(10 / portTICK_PERIOD_MS);
+            vTaskDelay(1 / portTICK_PERIOD_MS);
         }
 
         s->_setRPM(0);

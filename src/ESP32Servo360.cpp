@@ -144,12 +144,12 @@ void ESP32Servo360::setSpeed(float maxRpm)
 }
 
 void ESP32Servo360::setAdditionalTorque(float minRpm) {
-    _minRpm = constrain(minRpm, 0, _rpm);
+    _minRpm = constrain(abs(minRpm), 0, _rpm);
 }
 
 void ESP32Servo360::setMinimalForce(float minTorque)
 {
-    _minTorque = max(minTorque, (float)0);
+    _minTorque = max(abs(minTorque), (float)0);
 }
 
 void ESP32Servo360::rotate(float angle)
