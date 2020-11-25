@@ -69,7 +69,8 @@ Default is 70 RPM.
 #### servo.setAdditionalTorque(```float force```)
 **For easing rotations only**, add more force when speed is minimal (at start & end of movement).\
 Default is 5.
-#### servo.setMinimalForce(```float force```)
+#### servo.setMinimalForce(```c
+float force```)
 Minimal force required for the servo to move. minimal force may barely move the servo, bigger force may do infinite bounces.\
 Default is 7.
 ### Actions
