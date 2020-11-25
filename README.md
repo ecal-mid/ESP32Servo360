@@ -72,7 +72,8 @@ Default is 5.
 #### servo.setMinimalForce(
 ```c
 float force
-```)
+```
+)
 Minimal force required for the servo to move. minimal force may barely move the servo, bigger force may do infinite bounces.\
 Default is 7.
 ### Actions
