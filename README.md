@@ -24,6 +24,7 @@ About this motor:
 
 #### Connecting the ESP32 to a Servo
 <img src="https://raw.githubusercontent.com/ecal-mid/ESP32Servo360/main/docs/wiring.jpg" width="200" alt="wiring">
+
 1. Wire like the image above. Some pins may not work properly (GPIO0 for instance). Make sure to connect the ESP32 GND pin to the ground of the 6V power supply.
 3. Connect your esp32 to your computer and the motor to your 6V power supply.
 4. On Arduino IDE, find your board in _Tools > Port_. Mine, shows as _/dev/cu.SLAB_USBtoUART_.
@@ -116,6 +117,9 @@ Get number of turns. This will be reset after a reboot of the board.\
 Returns int.
 
 ----
+![image](https://freight.cargo.site/w/1617/q/94/i/7ea5fbc62bfd3dceb7749c74f3e29d1da3e9984838bbc8d410e550daf605db1c/ezgif-6-9acdaadda31d.gif)
+*Signal Spectacle, ECAL workshop with Pinaffo—Pluvinage, 2020*
+
 Author, maintainer: [Sébastien Matos](https://github.com/matoseb)\
 <img align="left" width="122" src="https://www.ecal.ch/img/logo.png">
 \
