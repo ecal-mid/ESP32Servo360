@@ -17,8 +17,8 @@ About this motor:
 - Micro USB to USB 2.0
 
 #### Installation for ESP32 boards
-1. Download the latest release [here](https://github.com/ecal-mid/ESP32Servo360/releases). Then, _Assets > Source code (zip)_.
-2. Download the latest [Arduino IDE](https://www.arduino.cc/en/software) then open it. 
+1. Download the latest [Arduino IDE](https://www.arduino.cc/en/software) then open it. 
+2. Download the ESP32Servo360 library from _Sketch > Include Library > Manage Libraries..._, search for `ESP32Servo360` and install the latest release.
 3. Go to _File > Preferences_, add `https://dl.espressif.com/dl/package_esp32_index.json` to *Additional Boards Manager URLs*, don't forget to separate the URLs with a comma.
 4. In _Board > Boards Manager_, search and install the latest core _esp32_.
 
