@@ -121,6 +121,5 @@ Returns int.
 *Signal Spectacle, ECAL workshop with Pinaffo—Pluvinage, 2020*
 
 Author, maintainer: [Sébastien Matos](https://github.com/matoseb)\
-<img align="left" width="122" src="https://www.ecal.ch/img/logo.png">
 \
 **ECAL 2020 Bachelor Media & Interaction design.**
